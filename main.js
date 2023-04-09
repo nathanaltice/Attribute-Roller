@@ -23,7 +23,7 @@ class Player {
     rollAttributes() {
         for (const key in this.attributes) {
             let results = diceRoller(4, 6);
-            results.sort(function(a, b){return a - b}); // numeric sort w/ compare function
+            results.sort(function(a, b) { return a - b }); // numeric sort w/ compare function
             results.shift(); // remove lowest die roll
             let sum = sumArrayElements(results); // sum the rolls
             this.attributes[key] = sum;
@@ -67,6 +67,15 @@ function diceRoller(times, sides) {
     return results;
 }
 
+// function sumArrayElements(array) {
+//     let sum = 0;
+//     for (let i = 0; i < array.length; i++) {
+//         sum += array[i];
+//     }
+    
+//     return sum;
+// }
+
 function sumArrayElements(array) {
-    return array.reduce((acc, curr) => acc + curr)
+    return array.reduce((total, currentNumber) => total + currentNumber);
 }
